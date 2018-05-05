@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ihaveArrived</title>
+    <title>Rock, Paper, Scissors</title>
+
+    <!-- Bootstrap Reference -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- CSS styles Reference -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="http://momentjs.com/downloads/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
 </head>
 <body>
-    
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="text-center">ihaveArrived</h1>
+        <div class="col-lg-4 col-lg-offset-4">
+            <div class="input-group" id="user-create">
+                <input type="text" class="form-control" placeholder="Username...">
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button" id="make-player">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="player-zone">
+    </div>
+    <!-- field for chat box-->
+    <div class="holder-messages">
+        <div id="messages"></div>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Message">
+            <input id="addMessage" type="submit" value="Send">
+        </form>
+    </div>
+
+    <button type="button" id="reset">Reset</button>
+
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
 </body>
 </html>
