@@ -1,4 +1,4 @@
-<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+{/* <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script> */}
 
   // Initialize Firebase
   var config = {
@@ -11,58 +11,108 @@
   };
   firebase.initializeApp(config);
 
-var user1 = user1
-var user2 = user2
+    var playerCounter = 0;
 
-    var database = firebase.database();
+  var currentPlayer;
+
+  // var playerOne = null;
+  // var playerTwo = null;
+
+
+  var database = firebase.database();
+  var playersRef = database.ref('players');
+
+  playersRef.on('child_added', function(childSnapshot) {
+    console.log(childSnapshot);
+    playerCounter++;
+    
+    if (playerCounter === 1) {
+      playerOne = childSnapshot.val();
+      currentPlayer = playerOne;
+      addPlayerPanel(playerOne, 1);
+    }
+    else if (playerCounter === 2) {
+      playerTwo = childSnapshot.val();
+      
+      if (currentPlayer !== undefined) {
+        currentPlayer = playerTwo;
+      }
+      addPlayerPanel(playerTwo, 2);
+      playGame();
+      $('#user-create').hide();
+    }
+  });
+
+  function playGame() {
+
+  }
+
+
+
+  function addPlayerPanel(player, num) {
+    var playerPanel = $('<p>');
+    playerPanel.text("Player " + num + ": " + player.name);
+    $('#player-zone').append(playerPanel);
+  }
+
+  playersRef.onDisconnect();
 
     // Button for choosing player 1 and player 2;
-    $(".btn-secondary").on("click", function(event) {
-        event.preventDefault();
-  
-    // This line grabs the name input from the textbox
-    var newPlayer = $(".form-control").val().trim();
+    $("#make-player").on("click", function(event) {
+      event.preventDefault();
 
+    // Grabs user input
+    var newPlayer = $(".form-control").val().trim();
     // Creates local "temporary" object for holding employee data
-    var playerOne = {
-        name: newPlayer,
+    var player = {
+      name: newPlayer,
+      enteredAt: firebase.database.ServerValue.TIMESTAMP
     };
 
     var a = $("<button>");
           // Adding a class to our button
-          a.addClass("newButton");
+          a.addClass("arrivedButton");
           // Adding a data-attribute
           a.attr("data-name", );
           // Providing the initial button text
           a.text("I have arrived");
           // Adding the button to the buttons-view div
-          $("#status-view").append(a);
+          $("#player-zone").append(a);
 
     var b = $("<button>");
 
-        b.addClass("newButton");
+        b.addClass("onTheWay");
 
         b.attr("data-name", );
 
         b.text("On the Way");
 
-        $("#status-view").append(b)
+        $("#player-zone").append(b)
     
     
-          console.log(playerOne.name);
+          
 
-    // Uploads employee data to the database
-    database.ref().push(playerOne);
+    // Uploads player data to the database
+    playersRef.push(player);
 
-
-    
-    // Alert
-    alert(playerOne.name + " is up first!");
-    });
     // Clears all of the text-boxes
     $(".form-control").val("");
 
+    });
 
-    
-    
-    // Onchild removed function to remove all firebase data for both player 1 and 2
+    //Creating funtionality for newly created buttons to hide the main div in order to display the coordinates  
+    $(".arrivedButton").on('click', function() {
+      $("#player-zone").hide();
+  });
+
+  
+
+    $('#reset').on('click', function() {
+      playersRef.remove();
+      $('#player-zone').empty();
+      $('#user-create').show();
+    });
+
+        // Onchild removed function to remove all firebase data for both player 1 and 2
+
+        // after js file is cleared with reset file create new function with database.empty
