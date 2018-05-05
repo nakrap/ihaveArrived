@@ -12,6 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- CSS styles Reference -->
+
+    <link href="assets/css/rese.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- Firebase Reference -->
@@ -24,21 +26,22 @@
 
 </head>
 <body>
+<div class="wrapper">
     <!-- Jumbotron -->
     <div class="jumbotron">
         <h1 class="text-center">ihaveArrived</h1>
-        <div class="col-lg-4 col-lg-offset-4">
-            <div class="input-group" id="user-create">
-                <input type="text" class="form-control" placeholder="Username...">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button" id="make-player">Go!</button>
-                </span>
+            <div class="greeting">
+                <form id="name-form">
+                    <input type="text" id="name-input" placeholder="Name">
+                    <input id="addName" type="submit" value="Start">
+                </form>
             </div>
         </div>
+    </div>   
+
+    <div id="player-zone"> <!--new users-->
     </div>
 
-    <div id="player-zone">
-    </div>
     <!-- field for chat box-->
     <div class="holder-messages">
         <div id="messages"></div>
@@ -51,7 +54,13 @@
     <button type="button" id="reset">Reset</button>
 
 
+</div> <!--end wrapper-->
+
     <!-- JavaScript -->
+  
     <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/chat.js"></script>
+
+
 </body>
 </html>
