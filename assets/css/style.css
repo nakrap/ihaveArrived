@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    background: #2fadfc;
+    font-family: Arial;
+  }
+    
+h1, h2, h3 {
+      text-align: center;
+  }
+  
+
+.jumbotron {
+    background-color: black; 
+    color: white;
+    text-align: center;
+}
+
+div.input-group {
+    margin-left: 352px;
+    margin-top: 40px;;
+}
+
+#addName, #addMessage {
+	background: white;
+	border: 1px solid black;
+	border-radius: 0.5vw;
+}
+
+#message-input {
+	width: 93%;
+}
+
+#name-input, #message-input {
+	border: 1px solid black;
+	border-radius: 0.25vw;
+}
+
+#name-input, #addName {
+	font-size: 2vw;
+	padding: 0.5vw;
+}
+
+#message-input, #addMessage {
+	font-size: 1vw;
+	padding: 0.25vw;
+}
+
+#addMessage {
+	border-radius: 0.25vw;
+	width: 6%;
+	float: right;
+	background: #2fadfc;
+}
+
+#messages {
+	width: 100%;
+	height: 10vw;
+	margin: 0.5vw 0;
+	overflow-y: auto;
+}
+
+#messages > p {
+	padding: 0.25vw 0;
+}
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.greeting {
+	position: relative;
+	margin: 1vw;
+	text-align: center;
+	color: white;
+}
+
+.holder-box, .holder-messages {
+	position: relative;
+	width: 61vw;
+	height: 15vw;
+	margin: 2vw auto;
+}
+
+.holder-messages {
+	padding: 1vw;
+	background: white;
+	border: 1px solid black;
+	border-radius: 2vw;
+}
+
+.box {
+	position: relative;
+	float: left;
+	width: 30vw;
+	height: 100%;
+	border: 1px solid black;
+	padding: 1%;
+	text-align: center;
+	background: white;
+	border-radius: 2vw;
+}
+
+.float-left {
+	float: left;
+	margin-left: 20%;
+}
+
+.float-right {
+	float: right;
+	margin-right: 20%;
+}

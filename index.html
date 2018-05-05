@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>I have arrived</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,9 +14,42 @@
 
 </head>
 <body>
-    
+
+<div class="wrapper">
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="text-center">ihaveArrived</h1>
+            <div class="greeting">
+                <form id="name-form">
+                    <input type="text" id="name-input" placeholder="Name">
+                    <input id="addName" type="submit" value="Start">
+                </form>
+            </div>
+        </div>
+    </div>   
+
+    <div id="player-zone"> <!--new users-->
+    </div>
+
+    <!-- field for chat box-->
+    <div class="holder-messages">
+        <div id="messages"></div>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Message">
+            <input id="addMessage" type="submit" value="Send">
+        </form>
+    </div>
+
+    <button type="button" id="reset">Reset</button>
+
+
+</div> <!--end wrapper-->
+
+    <!-- JavaScript -->
+  
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/chat.js"></script>
+
+
 </body>
-
-<script src= "assets/javascript/game.js"></script>
-
 </html>
