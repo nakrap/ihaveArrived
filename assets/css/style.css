@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    background: #2fadfc;
+    font-family: Arial;
+  }
+  
+  body {
+      /* No highlight on text */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+  }
+  
+  h1, h2, h3 {
+      text-align: center;
+  }
+  
+
+.jumbotron {
+    background-color: black; 
+    color: white;
+    text-align: center;
+}
+
+div.input-group {
+    margin-left: 352px;
+    margin-top: 40px;;
+}
+
+#addName, #addMessage {
+	background: white;
+	border: 1px solid black;
+	border-radius: 0.5vw;
+}
+
+#message-input {
+	width: 93%;
+}
+
+#name-input, #message-input {
+	border: 1px solid black;
+	border-radius: 0.25vw;
+}
+
+#name-input, #addName {
+	font-size: 2vw;
+	padding: 0.5vw;
+}
+
+#message-input, #addMessage {
+	font-size: 1vw;
+	padding: 0.25vw;
+}
+
+#addMessage {
+	border-radius: 0.25vw;
+	width: 6%;
+	float: right;
+	background: #2fadfc;
+}
+
+#messages {
+	width: 100%;
+	height: 10vw;
+	margin: 0.5vw 0;
+	overflow-y: auto;
+}
+
+#messages > p {
+	padding: 0.25vw 0;
+}
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
