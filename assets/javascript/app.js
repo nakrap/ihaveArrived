@@ -22,7 +22,7 @@
   var playersRef = database.ref('players');
 
   playersRef.on('child_added', function(childSnapshot) {
-    console.log(childSnapshot);
+    // console.log(childSnapshot);
     playerCounter++;
     
     if (playerCounter === 1) {
@@ -50,7 +50,7 @@
 
   function addPlayerPanel(player, num) {
     var playerPanel = $('<p>');
-    playerPanel.text("Player " + num + ": " + player.name);
+    playerPanel.text("User " + num + ": " + player.name);
     $('#player-zone').append(playerPanel);
   }
 
@@ -62,10 +62,12 @@
 
     // Grabs user input
     var newPlayer = $("#name-input").val().trim();
+    var newEmail = $("#email-input").val().trim();
     // Creates local "temporary" object for holding employee data
     var player = {
       name: newPlayer,
-      enteredAt: firebase.database.ServerValue.TIMESTAMP
+      enteredAt: firebase.database.ServerValue.TIMESTAMP,
+      email: newEmail
     };
 
     // var a = $("<button>");
@@ -96,6 +98,7 @@
 
     // Clears all of the text-boxes
     $("#name-input").val("");
+    $("#email-input").val("");
 
     });
 
