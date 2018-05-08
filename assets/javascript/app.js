@@ -99,25 +99,25 @@
       enteredAt: firebase.database.ServerValue.TIMESTAMP
     };
 
-    // var a = $("<button>");
-    //       // Adding a class to our button
-    //       a.addClass("arrivedButton");
-    //       // Adding a data-attribute
-    //       a.attr("data-name", );
-    //       // Providing the initial button text
-    //       a.text("I have arrived");
-    //       // Adding the button to the buttons-view div
-    //       $("#player-zone").append(a);
+      var a = $("<button>");
+          // Adding a class to our button
+          a.addClass("arrivedButton");
+          // Adding a data-attribute
+          a.attr("data-name", );
+          // Providing the initial button text
+          a.text("I have arrived");
+          // Adding the button to the buttons-view div
+          $("#player-zone").append(a);
 
-    // var b = $("<button>");
+      var b = $("<button>");
 
-    //     b.addClass("onTheWay");
+        b.addClass("onTheWay");
 
-    //     b.attr("data-name", );
+        b.attr("id", "onWay" );
 
-    //     b.text("On the Way");
+        b.text("On the Way");
 
-    //     $("#player-zone").append(b)
+        $("#player-zone").append(b)
     
     
           
@@ -130,10 +130,10 @@
 
     });
 
-    //Creating funtionality for newly created buttons to hide the main div in order to display the coordinates  
-  //   $(".arrivedButton").on('click', function() {
-  //     $("#player-zone").hide();
-  // });
+    // Creating funtionality for newly created buttons to hide the main div in order to display the coordinates  
+    $("#onWay").on('click', function() {
+      $("#onWay").hide();
+  });
 
   
 
