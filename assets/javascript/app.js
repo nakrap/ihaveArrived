@@ -21,6 +21,8 @@
   var database = firebase.database();
   var playersRef = database.ref('players');
 
+  var chatBox = database.ref('chatMessages');
+
   playersRef.on('child_added', function(childSnapshot) {
     console.log(childSnapshot);
     playerCounter++;
@@ -41,6 +43,35 @@
       $('#user-create').hide();
     }
   });
+
+  $("#addMessage").on("click", function(event) {
+    event.preventDefault();
+    
+    var newMessage = $("#message-input").val().trim();
+    var messageBox = {
+      message: newMessage,
+      enteredAt: firebase.database.ServerValue.TIMESTAMP
+    };
+
+    chatBox.push(messageBox);
+
+    $("#message-input").val("");
+
+  });
+
+
+  chatBox.on('child_added', function (childSnapshot) {
+    console.log(childSnapshot);
+    
+    var chatMsg = "Message: " + childSnapshot.child("message").val();
+    var chatEntry = $("<div>").text(chatMsg);
+    
+    $("#messages").append(chatEntry);
+    $("#messages").scrollTop($("#messages")[0].scrollHeight);
+    
+    });
+
+
 
   function playGame() {
 
