@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>I have arrived</title>
+        <title>I have arrived</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap Reference -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+        <!-- CSS styles Reference -->
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 
-</head>
-<body>
+        <!-- Firebase Reference -->
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
-<div class="wrapper">
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <h1 class="text-center">ihaveArrived</h1>
-            <div class="greeting">
-                <form id="name-form">
-                    <input type="text" id="name-input" placeholder="Name">
-                    <input id="addName" type="submit" value="Start">
+        <!-- Moment.js Reference -->
+        <script src="http://momentjs.com/downloads/moment.js"></script>
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <!-- Jumbotron -->
+            <div class="jumbotron">
+                <h1 class="text-center">ihaveArrived</h1>
+                    <div class="greeting">
+                        <form id="name-form">
+                            <input type="text" id="name-input" placeholder="Name">
+                            <input type="text" id="email-input" placeholder="Email">
+                            <input id="addName" type="submit" value="Start">
+                        </form>
+                    </div>
+                    <!-- <div class="email">
+                        <form id="email-form">
+                            <input type="text" id="email-input" placeholder="Email">
+                            <input id="addEmail" type="submit" value="Start">
+                        </form>
+                    </div> -->
+                </div>
+            </div>   
+
+            <div id="player-zone"> <!--new users-->
+            </div>
+
+            <!-- field for chat box-->
+            <div class="holder-messages">
+                <div id="messages"></div>
+                <form id="message-form">
+                    <input type="text" id="message-input" placeholder="Message">
+                    <input id="addMessage" type="submit" value="Send">
                 </form>
             </div>
-        </div>
-    </div>   
 
-    <div id="player-zone"> <!--new users-->
-    </div>
-
-    <!-- field for chat box-->
-    <div class="holder-messages">
-        <div id="messages"></div>
-        <form id="message-form">
-            <input type="text" id="message-input" placeholder="Message">
-            <input id="addMessage" type="submit" value="Send">
-        </form>
-    </div>
-
-    <button type="button" id="reset">Reset</button>
+            <button type="button" id="reset">Reset</button>
 
 
-</div> <!--end wrapper-->
+        </div> <!--end wrapper-->
 
-    <!-- JavaScript -->
-  
-    <script src="assets/javascript/app.js"></script>
-    <script src="assets/javascript/chat.js"></script>
+            <!-- JavaScript -->
+        
+            <script src="assets/javascript/app.js"></script>
+            <script src="assets/javascript/chat.js"></script>
 
 
-</body>
+    </body>
 </html>

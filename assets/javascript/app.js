@@ -1,6 +1,4 @@
 
-<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBPH6H536ccjgr9M48YunIT1tkMaYDJaUo",
@@ -10,21 +8,21 @@
     storageBucket: "ihavearrived-e9123.appspot.com",
     messagingSenderId: "393004989891"
   };
-  firebase.initializeApp(config);
 
-    var playerCounter = 0;
+  var playerCounter = 0;
 
   var currentPlayer;
 
-  // var playerOne = null;
-  // var playerTwo = null;
+  var playerOne = null;
+  var playerTwo = null;
 
+  firebase.initializeApp(config);
 
   var database = firebase.database();
   var playersRef = database.ref('players');
 
   playersRef.on('child_added', function(childSnapshot) {
-    console.log(childSnapshot);
+    // console.log(childSnapshot);
     playerCounter++;
     
     if (playerCounter === 1) {
@@ -52,43 +50,45 @@
 
   function addPlayerPanel(player, num) {
     var playerPanel = $('<p>');
-    playerPanel.text("Player " + num + ": " + player.name);
+    playerPanel.text("User " + num + ": " + player.name);
     $('#player-zone').append(playerPanel);
   }
 
-  playersRef.onDisconnect();
+
 
     // Button for choosing player 1 and player 2;
-    $("#make-player").on("click", function(event) {
+    $("#addName").on("click", function(event) {
       event.preventDefault();
 
     // Grabs user input
-    var newPlayer = $(".form-control").val().trim();
+    var newPlayer = $("#name-input").val().trim();
+    var newEmail = $("#email-input").val().trim();
     // Creates local "temporary" object for holding employee data
     var player = {
       name: newPlayer,
-      enteredAt: firebase.database.ServerValue.TIMESTAMP
+      enteredAt: firebase.database.ServerValue.TIMESTAMP,
+      email: newEmail
     };
 
-    var a = $("<button>");
-          // Adding a class to our button
-          a.addClass("arrivedButton");
-          // Adding a data-attribute
-          a.attr("data-name", );
-          // Providing the initial button text
-          a.text("I have arrived");
-          // Adding the button to the buttons-view div
-          $("#player-zone").append(a);
+    // var a = $("<button>");
+    //       // Adding a class to our button
+    //       a.addClass("arrivedButton");
+    //       // Adding a data-attribute
+    //       a.attr("data-name", );
+    //       // Providing the initial button text
+    //       a.text("I have arrived");
+    //       // Adding the button to the buttons-view div
+    //       $("#player-zone").append(a);
 
-    var b = $("<button>");
+    // var b = $("<button>");
 
-        b.addClass("onTheWay");
+    //     b.addClass("onTheWay");
 
-        b.attr("data-name", );
+    //     b.attr("data-name", );
 
-        b.text("On the Way");
+    //     b.text("On the Way");
 
-        $("#player-zone").append(b)
+    //     $("#player-zone").append(b)
     
     
           
@@ -97,14 +97,15 @@
     playersRef.push(player);
 
     // Clears all of the text-boxes
-    $(".form-control").val("");
+    $("#name-input").val("");
+    $("#email-input").val("");
 
     });
 
     //Creating funtionality for newly created buttons to hide the main div in order to display the coordinates  
-    $(".arrivedButton").on('click', function() {
-      $("#player-zone").hide();
-  });
+  //   $(".arrivedButton").on('click', function() {
+  //     $("#player-zone").hide();
+  // });
 
   
 
