@@ -89,6 +89,7 @@
 
     // Button for choosing player 1 and player 2;
     $("#addName").on("click", function(event) {
+     
       event.preventDefault();
 
     // Grabs user input
