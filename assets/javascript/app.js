@@ -44,32 +44,34 @@
     }
   });
 
-  $("#addMessage").on("click", function(event) {
-    event.preventDefault();
+  // $("#addMessage").on("click", function(event) {
+  //   event.preventDefault();
     
-    var newMessage = $("#message-input").val().trim();
-    var messageBox = {
-      message: newMessage,
-      enteredAt: firebase.database.ServerValue.TIMESTAMP
-    };
+  //   var newMessage = $("#message-input").val().trim();
+  //   var messageBox = {
+  //     message: newMessage,
+  //     enteredAt: firebase.database.ServerValue.TIMESTAMP
+  //   };
 
-    chatBox.push(messageBox);
+  //   chatBox.push(messageBox);
 
-    $("#message-input").val("");
+  //   $("#message-input").val("");
 
-  });
+  // });
 
 
-  chatBox.on('child_added', function (childSnapshot) {
-    console.log(childSnapshot);
+  // chatBox.on('child_added', function (childSnapshot) {
+  //   console.log(childSnapshot);
     
-    var chatMsg = "message: " + childSnapshot.child("message").val();
-    var chatEntry = $("<div>").text(chatMsg);
+
+  //   var chatMsg = "Message: " + childSnapshot.child("message").val();
+  //   var chatEntry = $("<div>").text(chatMsg);
+
     
-    $("#messages").append(chatEntry);
-    $("#messages").scrollTop($("#messages")[0].scrollHeight);
+  //   $("#messages").append(chatEntry);
+  //   $("#messages").scrollTop($("#messages")[0].scrollHeight);
     
-    });
+  //   });
 
 
 
