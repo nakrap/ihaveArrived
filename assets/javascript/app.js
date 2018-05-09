@@ -63,8 +63,10 @@
   // chatBox.on('child_added', function (childSnapshot) {
   //   console.log(childSnapshot);
     
+
   //   var chatMsg = "Message: " + childSnapshot.child("message").val();
   //   var chatEntry = $("<div>").text(chatMsg);
+
     
   //   $("#messages").append(chatEntry);
   //   $("#messages").scrollTop($("#messages")[0].scrollHeight);
@@ -88,7 +90,7 @@
 
 
     // Button for choosing player 1 and player 2;
-    $("#addName").on("click", function(event) {
+    $("form").submit(function(event) {
      
       event.preventDefault();
 
@@ -103,23 +105,16 @@
     };
 
       var a = $("<button>");
-          // Adding a class to our button
+
           a.addClass("arrivedButton");
-          // Adding a data-attribute
           a.attr("data-name", );
-          // Providing the initial button text
           a.text("I have arrived");
-          // Adding the button to the buttons-view div
           $("#player-zone").append(a);
 
       var b = $("<button>");
-
         b.addClass("onTheWay");
-
         b.attr("id", "onWay" );
-
         b.text("On the Way");
-
         $("#player-zone").append(b)
     
     
@@ -145,6 +140,7 @@
       playersRef.remove();
       $('#player-zone').empty();
       $('#user-create').show();
+
     });
 
         // Onchild removed function to remove all firebase data for both player 1 and 2
