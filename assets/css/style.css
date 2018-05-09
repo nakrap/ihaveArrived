@@ -1,151 +1,245 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    width: 100%;
-    height: 100%;
-    background: #2fadfc;
-    font-family: Arial;
-  }
-    
-h1, h2, h3 {
-      text-align: center;
-  }
+body {
+  /* Visual */
+  background-color: lightblue;
+}
+
+header {
+  /* Visual */
+  background-color: #c2d8b9;
+}
 
 h1 {
-	font-size: 8vw;
+  /* Visual */
+  padding: 15px;
+
+  /* Typography */
+  font-size: 6vw;
+  text-align: center;
 }
-  
+
+h2 {
+  /* Typography */
+  font-size: 24px;
+}
 
 .jumbotron {
-    background-color: black; 
-    color: white;
-    text-align: center;
+  background-color: black; 
+  color: white;
+  text-align: center;
+  height: 15vw;
 }
 
-div.input-group {
-    margin-left: 352px;
-    margin-top: 40px;;
+input {
+  /* Visual */
+  background-color: #fffcf7;
 }
 
-#addName, #addEmail, #addMessage {
-	background: white;
-	border: 1px solid black;
-	border-radius: 0.5vw;
+#sizer {
+  /* Box-model */
+  width: 1024px;
+
+  /* Positioning */
+  margin: 0 auto;
 }
 
-#message-input {
-	width: 93%;
+/***********************************
+
+              SwapZone
+
+***********************************/
+
+#swap-zone {
+  /* Box-model */
+  width: 75%;
+
+  /* Positioning */
+  margin: 25px auto;
+
+  /* Typography */
+  text-align: center;
 }
 
-#name-input, #email-input, #message-input {
-	border: 1px solid black;
-	border-radius: 0.25vw;
+#swap-zone input {
+  /* Box-model */
+  width: 40%;
+  height: 35px;
+
+  /* Typography */
+  font-size: 30px;
 }
 
-#name-input, #addName, #email-input, #addEmail {
-	font-size: 2vw;
-	padding: 0.5vw;
+#swap-zone button {
+  /* Box-model */
+  width: 100px;
+  height: 36px;
+
+  /* Typography */
+  font-size: 22px;
+
+  /* Positioning */
+  vertical-align: top;
 }
 
-#message-input, #addMessage {
-	font-size: 1vw;
-	padding: 0.25vw;
+/***********************************
+
+              Turn Indicator
+
+***********************************/
+
+#current-turn {
+  /* Box-model */
+  width: 75%;
+
+  /* Positioning */
+  margin: 15px auto;
+
+  /* Typography */
+  text-align: center;
 }
 
-#addMessage {
-	border-radius: 0.25vw;
-	width: 6%;
-	float: right;
-	background: #2fadfc;
+/***********************************
+
+              GameDiv
+
+***********************************/
+#game-div {
+  /* Typography */
+  text-align: center;
 }
 
-#messages {
-	width: 100%;
-	height: 10vw;
-	margin: 0.5vw 0;
-	overflow-y: auto;
+#player1,
+#result,
+#player2 {
+  position: relative;
+  display: inline-block;
+
+  /* Box-model */
+  width: 25%;
+  height: 200px;
+  box-sizing: border-box;
+  padding: 10px;
+
+  /* Positioning */
+  margin: 2%;
+
+  /* Typography */
+  text-align: center;
+  vertical-align: top;
+
+  /* Visual */
+  border: 1px solid #000;
 }
 
-#messages > p {
-	padding: 0.25vw 0;
+#player1-name,
+#player2-name {
+  /* Positioning */
+  margin-bottom: 15px;
+
+  /* Typography */
+  font-size: 28px;
 }
 
-.wrapper {
-	position: relative;
-	width: 100%;
-	height: 100%;
+#player1-chosen,
+#player2-chosen {
+  /* Positioning */
+  margin-top: 25px;
+
+  /* Typography */
+  font-size: 60px;
 }
 
-.greeting {
-	position: relative;
-	margin: 1vw;
-	text-align: center;
-	color: white;
+li {
+  /* Positioning */
+  margin: 12px 0;
+
+  /* Typography */
+  font-size: 24px;
 }
 
-/* .users-box, {
-	position: relative;
-	width: 61vw;
-	height: 15vw;
-	margin: 2vw auto;
-} */
+.outcomes {
+  /* Positioning */
+  position: absolute;
+  bottom: 10px;
 
-.holder-messages {
-	position: relative;
-	width: 61vw;
-	height: 15vw;
-	margin: 2vw auto;
-	padding: 1vw;
+  /* Box-model */
+  width: 90%;
+
+  /* Typography */
+  text-align: center;
+}
+
+.outcome-trackers { /* Box-model */
+  display: inline-block;
+}
+
+#result h2 {
+  /* Positioning */
+  margin-top: 20px;
+
+  /* Typography */
+  font-size: 60px;
+}
+
+/***********************************
+
+            Chatbox
+
+***********************************/
+
+#chat {
+  /* Positioning */
+  position: relative;
+
+  /* Box-model */
+  width: 61vw;
+  height: 15vw;
+
+  /* Visual */
+  padding: 1vw;
+  margin: 2vw auto;
 	background: white;
 	border: 1px solid black;
 	border-radius: 2vw;
 }
 
-.users-box {
-	position: relative;
-	width: 15vw;
-	height: 5vw;
-	margin: 2vw auto;
-	padding: 1vw;
-	background: white;
-	border: 1px solid black;
-	border-radius: 2vw;
-	/* position: relative;
-	top: 50%;
-	left: 50%;
-	margin-top: -50px;
-	margin-left: -100px;
-	border: 1px solid black;
-	padding: 1%;
-	text-align: center;
-	background: white;
-	border-radius: 2vw; */
+#chat-messages {
+  /* Box-model */
+  height: 125px;
+  overflow: auto;
+
+  /* Visual */
+  background-color: #fffcf7;
 }
 
-.waiting {
-	position: static;
+#chat-bar {
+  /* Positioning */
+  position: absolute;
+  bottom: 10px;
 }
 
-
-.float-left {
-	float: left;
-	margin-left: 20%;
+#chat-input {
+  /* Box-model */
+  width: 53vw;
 }
 
-.float-right {
-	float: right;
-	margin-right: 20%;
+#chat-send {
+  /* Box-model */
+  width: 5vw;
 }
 
-input:required:invalid, input:focus:invalid {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeVJREFUeNqkU01oE1EQ/mazSTdRmqSxLVSJVKU9RYoHD8WfHr16kh5EFA8eSy6hXrwUPBSKZ6E9V1CU4tGf0DZWDEQrGkhprRDbCvlpavan3ezu+LLSUnADLZnHwHvzmJlvvpkhZkY7IqFNaTuAfPhhP/8Uo87SGSaDsP27hgYM/lUpy6lHdqsAtM+BPfvqKp3ufYKwcgmWCug6oKmrrG3PoaqngWjdd/922hOBs5C/jJA6x7AiUt8VYVUAVQXXShfIqCYRMZO8/N1N+B8H1sOUwivpSUSVCJ2MAjtVwBAIdv+AQkHQqbOgc+fBvorjyQENDcch16/BtkQdAlC4E6jrYHGgGU18Io3gmhzJuwub6/fQJYNi/YBpCifhbDaAPXFvCBVxXbvfbNGFeN8DkjogWAd8DljV3KRutcEAeHMN/HXZ4p9bhncJHCyhNx52R0Kv/XNuQvYBnM+CP7xddXL5KaJw0TMAF8qjnMvegeK/SLHubhpKDKIrJDlvXoMX3y9xcSMZyBQ+tpyk5hzsa2Ns7LGdfWdbL6fZvHn92d7dgROH/730YBLtiZmEdGPkFnhX4kxmjVe2xgPfCtrRd6GHRtEh9zsL8xVe+pwSzj+OtwvletZZ/wLeKD71L+ZeHHWZ/gowABkp7AwwnEjFAAAAAElFTkSuQmCC);
-    background-position: right top;
-	background-repeat: no-repeat;
-  }
-input:required:valid {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrEk79PFEEUx9/uDDd7v/AAQQnEQokmJCRGwc7/QeM/YGVxsZJQYI/EhCChICYmUJigNBSGzobQaI5SaYRw6imne0d2D/bYmZ3dGd+YQKEHYiyc5GUyb3Y+77vfeWNpreFfhvXfAWAAJtbKi7dff1rWK9vPHx3mThP2Iaipk5EzTg8Qmru38H7izmkFHAF4WH1R52654PR0Oamzj2dKxYt/Bbg1OPZuY3d9aU82VGem/5LtnJscLxWzfzRxaWNqWJP0XUadIbSzu5DuvUJpzq7sfYBKsP1GJeLB+PWpt8cCXm4+2+zLXx4guKiLXWA2Nc5ChOuacMEPv20FkT+dIawyenVi5VcAbcigWzXLeNiDRCdwId0LFm5IUMBIBgrp8wOEsFlfeCGm23/zoBZWn9a4C314A1nCoM1OAVccuGyCkPs/P+pIdVIOkG9pIh6YlyqCrwhRKD3GygK9PUBImIQQxRi4b2O+JcCLg8+e8NZiLVEygwCrWpYF0jQJziYU/ho2TUuCPTn8hHcQNuZy1/94sAMOzQHDeqaij7Cd8Dt8CatGhX3iWxgtFW/m29pnUjR7TSQcRCIAVW1FSr6KAVYdi+5Pj8yunviYHq7f72po3Y9dbi7CxzDO1+duzCXH9cEPAQYAhJELY/AqBtwAAAAASUVORK5CYII=);
-    background-position: right top;
-    background-repeat: no-repeat;
-  }
+.player1 {
+  /* Visual */
+  color: #419d78;
+}
+
+.player2 {
+  /* Visual */
+  color: #2d3047;
+}
+
+.player0 {
+  color: #000;
+
+  /* Visual */
+  background-color: #d3d3d3;
+}

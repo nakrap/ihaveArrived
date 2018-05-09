@@ -1,81 +1,89 @@
 <!DOCTYPE html>
-<HTML5 lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>I have arrived</title>
+<html lang="en-us">
 
-        <!-- Bootstrap Reference -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <head>
 
-        <!-- CSS styles Reference -->
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <title>ihaveArrived</title>
 
-        <!-- Firebase Reference -->
-        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <!-- CSS reset sheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 
-        <!-- Moment.js Reference -->
-        <script src="http://momentjs.com/downloads/moment.js"></script>
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-        
-    </head>
-    <body>
+    <!-- Our Own CSS File -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-        <div class="wrapper">
-            <!-- Jumbotron -->
-            <div class="jumbotron">
-                <h1 class="text-center">ihaveArrived</h1>
-                    <div class="greeting">
-                        <form id="name-form">
-                            <input type="text" id="name-input" name="Name" autofocus required placeholder="Name"/>
-                            <input type="email" id="email-input" name="Email" required placeholder="Email"/>
-                            <!-- <input id="addName" type="submit" value="Start"/> -->
-                            <button id="name" type="submit">Submit</button>
-                        </form>
-                    </div>
-                    <!-- <div class="email">
-                        <form id="email-form">
-                            <input type="text" id="email-input" placeholder="Email">
-                            <input id="addEmail" type="submit" value="Start">
-                        </form>
-                    </div> -->
-                </div>
-            </div>   
+    <!-- Firebase Link -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
 
-            <div id="player-zone"> <!--new users-->
-                <div class="users-box">
-                        <div class="waiting">
-                            <h2>Waiting for users.....</h2>
-                            <i class="fa fa-spinner fa-spin fa-one-large fa-fw"></i>
-                        </div>
-                    </div>
-            </div>
+  </head>
 
-            <!-- field for chat box-->
-            <div class="holder-messages">
-                <div id="messages"></div>
-                <form id="message-form">
-                    <input type="text" id="message-input" placeholder="Message">
-                    <input id="addMessage" type="submit" value="Send">
-                </form>
-            </div>
+  <body>
 
-            <button type="button" id="reset">Reset</button>
+    <div class="jumbotron">
+      <h1 class="text-center">ihaveArrived</h1>
+          <div class="greeting">
+          </div>
+      </div>
 
+    <div id="sizer">
 
-        </div> <!--end wrapper-->
+      <div id="swap-zone">
+        <input id="username" placeholder="Name"/>
+        <input type="email" id="email-input" name="Email" required placeholder="Email"/>
+        <button id="start">Start</button>
+      </div>
 
-            <!-- JavaScript -->
-        
-            <script src="assets/javascript/app.js"></script>
-            <script src="assets/javascript/chat.js"></script>
+      <div id="current-turn"></div>
 
+      <div id="game-div">
 
-    </body>
-</HTML5>
+        <div id="player1">
+          <h3 id="player1-name">Player1</h3>
+          <ul>
+          </ul>
+          <div id="player1-chosen"></div>
+          <div class="outcomes">
+            <div class="outcome-trackers" id="player1-"></div>
+            <div class="outcome-trackers" id="player1-losses"></div>
+          </div>
+        </div>
+
+        <div id="result"></div>
+
+        <div id="player2">
+          <h3 id="player2-name">Player2</h3>
+          <ul>
+          </ul>
+          <div id="player2-chosen"></div>
+          <div class="outcomes">
+            <div class="outcome-trackers" id="player2-wins"></div>
+            <div class="outcome-trackers" id="player2-losses"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="chat">
+        <div id="chat-messages"></div>
+        <div id="chat-bar">
+          <input id="chat-input" />
+          <button id="chat-send">Send</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script src="assets\javascript\chat.js"></script>
+
+  </body>
+
+</html>
+
