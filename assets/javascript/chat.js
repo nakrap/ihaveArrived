@@ -44,6 +44,27 @@ function capitalize(name) {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
+//buttons
+var a = $("<button>");
+// Adding a class to our button
+a.addClass("arrivedButton");
+// Adding a data-attribute
+a.attr("data-name", );
+// Providing the initial button text
+a.text("I have arrived");
+// Adding the button to the buttons-view div
+$("#player1-buttons").append(a);
+
+var b = $("<button>");
+
+b.addClass("onTheWay");
+
+b.attr("id", "onWay" );
+
+b.text("On the Way");
+
+$("#player2-buttons").append(b)
+
 // CHAT LISTENERS
 // Chat send button listener, grabs input and pushes to firebase. (Firebase's push automatically creates a unique key)
 $("#chat-send").click(function() {

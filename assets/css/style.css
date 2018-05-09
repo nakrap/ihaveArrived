@@ -10,7 +10,7 @@ header {
 
 h1 {
   /* Visual */
-  padding: 15px;
+  padding: 10px;
 
   /* Typography */
   font-size: 6vw;
@@ -26,7 +26,7 @@ h2 {
   background-color: black; 
   color: white;
   text-align: center;
-  height: 15vw;
+  height: 20vw;
 }
 
 input {
@@ -36,7 +36,7 @@ input {
 
 #sizer {
   /* Box-model */
-  width: 1024px;
+  width: 100%;
 
   /* Positioning */
   margin: 0 auto;
@@ -108,7 +108,6 @@ input {
 }
 
 #player1,
-#result,
 #player2 {
   position: relative;
   display: inline-block;
@@ -129,6 +128,28 @@ input {
   /* Visual */
   border: 1px solid #000;
 }
+
+#map {
+  position: relative;
+  display: inline-block;
+
+  /* Box-model */
+  width: 35%;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 10px;
+
+  /* Positioning */
+  margin: 2%;
+
+  /* Typography */
+  text-align: center;
+  vertical-align: top;
+
+  /* Visual */
+  border: 1px solid #000;
+}
+
 
 #player1-name,
 #player2-name {
