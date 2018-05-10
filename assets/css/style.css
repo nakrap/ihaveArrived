@@ -107,8 +107,7 @@ input {
   text-align: center;
 }
 
-#player1,
-#player2 {
+#player1, #player2 {
   position: relative;
   display: inline-block;
 
@@ -126,7 +125,9 @@ input {
   vertical-align: top;
 
   /* Visual */
-  border: 1px solid #000;
+  border: 3px solid #000;
+  border-radius: 15px;
+	box-shadow: 10px 10px 50px grey,
 }
 
 #map {
@@ -203,6 +204,51 @@ li {
 
 /***********************************
 
+            ihaveArrived & onTheWay buttons
+
+***********************************/
+
+.arrivedButton, .onTheWay {
+  border-top: 1px solid #ab1b1b;
+  background: #808080;
+  background: -webkit-gradient(linear, left top, left bottom, from(#383838), to(#808080));
+  background: -webkit-linear-gradient(top, #383838, #808080);
+  background: -moz-linear-gradient(top, #383838, #808080);
+  background: -ms-linear-gradient(top, #383838, #808080);
+  background: -o-linear-gradient(top, #383838, #808080);
+  padding: 10px 26px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: Georgia, serif;
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+  margin-bottom: 30px;
+  }
+.arrivedButton:hover, .onTheWay:hover {
+  border-top-color: #a61515;
+  background: #a61515;
+  color: #000000;
+  cursor:pointer;
+  }
+.arrivedButton:active, .onTheWay:active {
+  border-top-color: #002c4a;
+  background: #002c4a;
+  }
+
+#arrived {
+  display: none;
+  }
+
+/***********************************
+
             Chatbox
 
 ***********************************/
@@ -219,8 +265,8 @@ li {
   padding: 1vw;
   margin: 2vw auto;
 	background: white;
-	border: 1px solid black;
-	border-radius: 2vw;
+	border: 2px solid black;
+  border-radius: 2vw;
 }
 
 #chat-messages {
@@ -250,7 +296,7 @@ li {
 
 .player1 {
   /* Visual */
-  color: #419d78;
+  color: #631313;
 }
 
 .player2 {
@@ -272,4 +318,15 @@ li {
             Validation
 
 ***********************************/
+
+input:required:invalid, input:focus:invalid {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeVJREFUeNqkU01oE1EQ/mazSTdRmqSxLVSJVKU9RYoHD8WfHr16kh5EFA8eSy6hXrwUPBSKZ6E9V1CU4tGf0DZWDEQrGkhprRDbCvlpavan3ezu+LLSUnADLZnHwHvzmJlvvpkhZkY7IqFNaTuAfPhhP/8Uo87SGSaDsP27hgYM/lUpy6lHdqsAtM+BPfvqKp3ufYKwcgmWCug6oKmrrG3PoaqngWjdd/922hOBs5C/jJA6x7AiUt8VYVUAVQXXShfIqCYRMZO8/N1N+B8H1sOUwivpSUSVCJ2MAjtVwBAIdv+AQkHQqbOgc+fBvorjyQENDcch16/BtkQdAlC4E6jrYHGgGU18Io3gmhzJuwub6/fQJYNi/YBpCifhbDaAPXFvCBVxXbvfbNGFeN8DkjogWAd8DljV3KRutcEAeHMN/HXZ4p9bhncJHCyhNx52R0Kv/XNuQvYBnM+CP7xddXL5KaJw0TMAF8qjnMvegeK/SLHubhpKDKIrJDlvXoMX3y9xcSMZyBQ+tpyk5hzsa2Ns7LGdfWdbL6fZvHn92d7dgROH/730YBLtiZmEdGPkFnhX4kxmjVe2xgPfCtrRd6GHRtEh9zsL8xVe+pwSzj+OtwvletZZ/wLeKD71L+ZeHHWZ/gowABkp7AwwnEjFAAAAAElFTkSuQmCC);
+  background-position: right top;
+background-repeat: no-repeat;
+}
+input:required:valid {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrEk79PFEEUx9/uDDd7v/AAQQnEQokmJCRGwc7/QeM/YGVxsZJQYI/EhCChICYmUJigNBSGzobQaI5SaYRw6imne0d2D/bYmZ3dGd+YQKEHYiyc5GUyb3Y+77vfeWNpreFfhvXfAWAAJtbKi7dff1rWK9vPHx3mThP2Iaipk5EzTg8Qmru38H7izmkFHAF4WH1R52654PR0Oamzj2dKxYt/Bbg1OPZuY3d9aU82VGem/5LtnJscLxWzfzRxaWNqWJP0XUadIbSzu5DuvUJpzq7sfYBKsP1GJeLB+PWpt8cCXm4+2+zLXx4guKiLXWA2Nc5ChOuacMEPv20FkT+dIawyenVi5VcAbcigWzXLeNiDRCdwId0LFm5IUMBIBgrp8wOEsFlfeCGm23/zoBZWn9a4C314A1nCoM1OAVccuGyCkPs/P+pIdVIOkG9pIh6YlyqCrwhRKD3GygK9PUBImIQQxRi4b2O+JcCLg8+e8NZiLVEygwCrWpYF0jQJziYU/ho2TUuCPTn8hHcQNuZy1/94sAMOzQHDeqaij7Cd8Dt8CatGhX3iWxgtFW/m29pnUjR7TSQcRCIAVW1FSr6KAVYdi+5Pj8yunviYHq7f72po3Y9dbi7CxzDO1+duzCXH9cEPAQYAhJELY/AqBtwAAAAASUVORK5CYII=);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
 
