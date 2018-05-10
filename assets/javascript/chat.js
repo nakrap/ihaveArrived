@@ -169,7 +169,7 @@ playersRef.on("value", function(snapshot) {
   else {
 
     // If there is no player 1, clear win/loss data and show waiting
-    $("#player1-name").text("Waiting for User");
+    $("#player1-name").text("Waiting for a Guest to join.");
     $("#player1-wins").empty();
     $("#player1-losses").empty();
   }
