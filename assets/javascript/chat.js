@@ -106,11 +106,11 @@ $("#chat-input").keypress(function(e) {
 // Click event for dynamically added <li> elements
 $(document).on("click", "li", function() {
 
-  console.log("click");
+  // console.log("click");
 
   // Grabs text from li choice
   var clickChoice = $(this).text();
-  console.log(playerRef);
+  // console.log(playerRef);
 
   // Sets the choice in the current player object in firebase
   playerRef.child("choice").set(clickChoice);

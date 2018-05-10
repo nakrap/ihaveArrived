@@ -256,6 +256,7 @@ li {
 .player2 {
   /* Visual */
   color: #2d3047;
+  text-align: right;
 }
 
 .player0 {
@@ -264,3 +265,11 @@ li {
   /* Visual */
   background-color: #d3d3d3;
 }
+
+
+/***********************************
+
+            Validation
+
+***********************************/
+
