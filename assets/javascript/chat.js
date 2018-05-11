@@ -21,8 +21,7 @@ var playerOneExists = false;
 var playerTwoExists = false;
 var playerOneData = null;
 var playerTwoData = null;
-
-
+$(document.body).append(form);
 
 // -----------------------------------------------------------------------------------------------------------------------------
 
@@ -31,16 +30,18 @@ var playerTwoData = null;
 // USERNAME LISTENERS
 // Start button - takes username and tries to get user in game
 $("#start").submit(function() {
-  if ($("#username").val() !== "") {
-    username = capitalize($("#username").val());
+  if ($("#username, #email").val() !== "") {
+		username = capitalize($("#username").val());
+		email = $("#email").val();
     getInGame();
   }
 });
 
 // listener for 'enter' in username input
-$("#username").keypress(function(e) {
-  if (e.which === 13 && $("#username").val() !== "") {
-    username = capitalize($("#username").val());
+$("#username, #email").keypress(function(e) {
+  if (e.which === 13 && $("#username, #email").val() !== "") {
+		username = capitalize($("#username").val());
+		email = $("#email").val();
     getInGame();
   }
 });
@@ -212,14 +213,14 @@ playersRef.on("value", function(snapshot) {
   // If theres a player 1, fill in name and win loss data
   if (playerOneExists) {
 		$("#player1-name").text(playerOneData.name);
-		$("#player2-status").text(playerTwo.status);
+		$("#player2-status").text("Waiting for Guest...");
 																																		// $("#player1-wins").text("Wins: " + playerOneData.wins);
 																																		// $("#player1-losses").text("Losses: " + playerOneData.losses);
   }
   else {
 
     // If there is no player 1, clear win/loss data and show waiting
-    $("#player1-name").text("Waiting for Guest...");
+    $("#player1-name").text("Waiting for Host...");
 																																		// $("#player1-wins").empty();
 																																		// $("#player1-losses").empty();
   }
@@ -227,14 +228,14 @@ playersRef.on("value", function(snapshot) {
   // If theres a player 2, fill in name and win/loss data
   if (playerTwoExists) {
 		$("#player2-name").text(playerTwoData.name);
-		$("#player2-status").text(playerTwo.status);
+		$("#player1-status").text(playerOneData.status);
 																																		// $("#player2-wins").text("Wins: " + playerTwoData.wins);
 																																		// $("#player2-losses").text("Losses: " + playerTwoData.losses);
   }
   else {
 
     // If no player 2, clear win/loss and show waiting
-    $("#player2-name").text("Waiting for Host...");
+    $("#player2-name").text("Waiting for Guest...");
 																																		// $("#player2-wins").empty();
 																																		// $("#player2-losses").empty();
   }
@@ -464,11 +465,11 @@ function getInGame() {
 		// $("#swap-zone").html("<h2>Hello " + username + "! You are now User " + playerNum + "</h2>");
 		$("#swap-zone").html("<h2>Hello " + username + "! Welcome to the <strong>ihaveArrived</strong> Dashboard.</h2>");
   }
-  else {
+																															// else {
 
-    // If current players is "2", will not allow the player to join
-    alert("Sorry, there are already 2 users! Try Again Later!");
-  }
+																															//   // If current players is "2", will not allow the player to join
+																															//   alert("Sorry, there are already 2 users! Try Again Later!");
+																															// }
 };
 
 // -----------------------------------------------------------------------------------------------------------------------------
@@ -491,52 +492,52 @@ function gameLogic(player1choice, player2choice) {
 
   var playerOneWon = function() {
     $("#result").html("<h2>" + playerOneData.name + "</h2><h2> has arrived!</h2>");
-    if (playerNum === 1) {
-      playersRef.child("1").child("wins").set(playerOneData.wins + 1);
-      playersRef.child("2").child("losses").set(playerTwoData.losses + 1);
-    }
+																													// if (playerNum === 1) {
+																													//   playersRef.child("1").child("wins").set(playerOneData.wins + 1);
+																													//   playersRef.child("2").child("losses").set(playerTwoData.losses + 1);
+																													// }
   };
 
   var playerTwoWon = function() {
     $("#result").html("<h2>" + playerTwoData.name + "</h2><h2> is on the way!</h2>");
-    if (playerNum === 2) {
-      playersRef.child("2").child("wins").set(playerTwoData.wins + 1);
-      playersRef.child("1").child("losses").set(playerOneData.losses + 1);
-    }
+																													// if (playerNum === 2) {
+																													//   playersRef.child("2").child("wins").set(playerTwoData.wins + 1);
+																													//   playersRef.child("1").child("losses").set(playerOneData.losses + 1);
+																													// }
   };
 
-  var tie = function() {
-		$("#result").html("<h2>Tie Game!</h2>");
+  var ARRIVED = function() {
+		$("#result").html("<h2>Congratulations! You met up!</h2>");
 		showButtons();
   };
 
-  if (player1choice === "Rock" && player2choice === "Rock") {
-    tie();
+  if (player1choice === "I have arrived" && player2choice === "On the Way") {
+    ARRIVED();
   }
-  else if (player1choice === "Paper" && player2choice === "Paper") {
-    tie();
-  }
-  else if (player1choice === "Scissors" && player2choice === "Scissors") {
-    tie();
-  }
-  else if (player1choice === "Rock" && player2choice === "Paper") {
-    playerTwoWon();
-  }
-  else if (player1choice === "Rock" && player2choice === "Scissors") {
-    playerOneWon();
-  }
-  else if (player1choice === "Paper" && player2choice === "Rock") {
-    playerOneWon();
-  }
-  else if (player1choice === "Paper" && player2choice === "Scissors") {
-    playerTwoWon();
-  }
-  else if (player1choice === "Scissors" && player2choice === "Rock") {
-    playerTwoWon();
-  }
-  else if (player1choice === "Scissors" && player2choice === "Paper") {
-    playerOneWon();
-  }
+																												// else if (player1choice === "Paper" && player2choice === "Paper") {
+																												//   tie();
+																												// }
+																												// else if (player1choice === "Scissors" && player2choice === "Scissors") {
+																												//   tie();
+																												// }
+																												// else if (player1choice === "Rock" && player2choice === "Paper") {
+																												//   playerTwoWon();
+																												// }
+																												// else if (player1choice === "Rock" && player2choice === "Scissors") {
+																												//   playerOneWon();
+																												// }
+																												// else if (player1choice === "Paper" && player2choice === "Rock") {
+																												//   playerOneWon();
+																												// }
+																												// else if (player1choice === "Paper" && player2choice === "Scissors") {
+																												//   playerTwoWon();
+																												// }
+																												// else if (player1choice === "Scissors" && player2choice === "Rock") {
+																												//   playerTwoWon();
+																												// }
+																												// else if (player1choice === "Scissors" && player2choice === "Paper") {
+																												//   playerOneWon();
+																												// }
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------
@@ -550,7 +551,7 @@ function showButtons () {
 
 
 
-$('#arrived').on('click', function() {
+$('#arrived').submit('click', function() {
 	playersRef.remove();
 	$('#player-zone').empty();
 	$('#user-create').show();
