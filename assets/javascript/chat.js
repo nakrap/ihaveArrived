@@ -21,7 +21,7 @@ var playerOneExists = false;
 var playerTwoExists = false;
 var playerOneData = null;
 var playerTwoData = null;
-$(document.body).append(form);
+
 
 // -----------------------------------------------------------------------------------------------------------------------------
 
@@ -137,9 +137,16 @@ $("#chat-input").keypress(function(e) {
     $("#chat-input").val("");
   }
 });
-
 																														// Click event for dynamically added <li> elements
 																														$(document).on("click", "li", function() {
+                                                
+                                                              console.log(currentTurn);
+                                                              if(currentTurn==1){
+                                                              window.frames[0].location = "location.html";
+                                                              }
+                                                              if(currentTurn==2){
+                                                              window.frames[0].location = "detail.html";
+                                                              }
 
 																															// console.log("click");
 
@@ -394,9 +401,7 @@ currentTurnRef.on("value", function(snapshot) {
 
 // When a player joins, checks to see if there are two players now. If yes, then it will start the game.
 playersRef.on("child_added", function(snapshot) {
-
   if (currentPlayers === 1) {
-
     // set turn to 1, which starts the game
     currentTurnRef.set(1);
   }
@@ -441,25 +446,25 @@ function getInGame() {
     playerRef = database.ref("/players/" + playerNum);
 		var newEmail = $("#email").val().trim();
     // Creates player object. 'choice' is unnecessary here, but I left it in to be as complete as possible
-    playerRef.set({
+    playerRef.update({
       name: username,
 			email: newEmail,
       choice: null
 		});
 
     // On disconnect remove this user's player object
-    playerRef.onDisconnect().remove();
+    // playerRef.onDisconnect().remove();
 
     // If a user disconnects, set the current turn to 'null' so the game does not continue
-    currentTurnRef.onDisconnect().remove();
+    // currentTurnRef.onDisconnect().remove();
 
     // Send disconnect message to chat with Firebase server generated timestamp and id of '0' to denote system message
-    chatDataDisc.onDisconnect().set({
-      name: username,
-      time: firebase.database.ServerValue.TIMESTAMP,
-      message: "has left.",
-      idNum: 0
-		});
+    // chatDataDisc.onDisconnect().set({
+    //   name: username,
+    //   time: firebase.database.ServerValue.TIMESTAMP,
+    //   message: "has left.",
+    //   idNum: 0
+		// });
 
     // Remove name input box and show current player number.
 		// $("#swap-zone").html("<h2>Hello " + username + "! You are now User " + playerNum + "</h2>");
