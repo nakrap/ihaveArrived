@@ -1,6 +1,6 @@
 body {
   /* Visual */
-  background-color: lightblue;
+  background-color: #42a5f5;
 }
 
 header {
@@ -20,6 +20,13 @@ h1 {
 h2 {
   /* Typography */
   font-size: 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', Georgia, Times, serif;
+}
+p, div {
+  font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
 .jumbotron {
@@ -125,9 +132,10 @@ input {
   vertical-align: top;
 
   /* Visual */
+  background: white;
   border: 3px solid #000;
   border-radius: 15px;
-	box-shadow: 10px 10px 50px grey,
+  box-shadow: 10px 10px 50px grey,
 }
 
 #map {
@@ -148,7 +156,9 @@ input {
   vertical-align: top;
 
   /* Visual */
-  border: 1px solid #000;
+  border: 3px solid #000;
+  border-radius: 15px;
+  box-shadow: 10px 10px 50px grey,
 }
 
 
@@ -224,7 +234,7 @@ li {
   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
   box-shadow: rgba(0,0,0,1) 0 1px 0;
   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-  color: #ffffff;
+  color: green;
   font-size: 18px;
   font-family: Georgia, serif;
   text-decoration: none;
@@ -291,7 +301,8 @@ li {
 
 #chat-send {
   /* Box-model */
-  width: 5vw;
+  width: 6vw;
+  background: lightgreen;
 }
 
 .player1 {
