@@ -1,6 +1,6 @@
 body {
   /* Visual */
-  background-color: #42a5f5;
+	background-image: url("../images/background.jpg");
 }
 
 header {
@@ -19,7 +19,6 @@ h1 {
 
 h2 {
   /* Typography */
-  font-size: 24px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,7 +29,7 @@ p, div {
 }
 
 .jumbotron {
-  background-color: black; 
+	background-image: url("../images/header2.png");
   color: white;
   text-align: center;
   height: 20vw;
