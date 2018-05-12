@@ -53,8 +53,8 @@
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
       
@@ -63,10 +63,10 @@
         var detectedPosLat = pos.lat;
         var detectedPosLang = pos.lng;
         database.ref().update({
-                bdLat: detectedPosLat,
-                bdLang: detectedPosLang,
-                bdLatR: 0,
-                bdLangR: 0,
-                arrStat: "arrived",
-              });
+          bdLat: detectedPosLat,
+          bdLang: detectedPosLang,
+          bdLatR: 0,
+          bdLangR: 0,
+          arrStat: "arrived",
+        });
       }

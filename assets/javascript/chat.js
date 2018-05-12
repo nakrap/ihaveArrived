@@ -34,7 +34,7 @@ $("#start").click(function() {
 		username = capitalize($("#username").val());
 		email = $("#email").val();
     getInGame();
-  }
+  } 
 });
 
 // listener for 'enter' in username input
@@ -140,7 +140,7 @@ $("#chat-input").keypress(function(e) {
 																														// Click event for dynamically added <li> elements
 																														$(document).on("click", "li", function() {
                                                 
-                                                              console.log(currentTurn);
+                                                              // console.log(currentTurn);
                                                               if(currentTurn==1){
                                                               window.frames[0].location = "location.html";
                                                               }
@@ -346,8 +346,8 @@ currentTurnRef.on("value", function(snapshot) {
 															//This is where the DIRECTIONS would disply in the middle!!!!!! After each user clicks their buttons.
 
 
-																																	// // Where the game win logic takes place then resets to turn 1
-																																	// gameLogic(playerOneData.choice, playerTwoData.choice);
+    // Where the game win logic takes place then resets to turn 1
+    gameLogic(playerOneData.choice, playerTwoData.choice);
 
       // reveal both player statuses
       $("#player1-chosen").text(playerOneData.choice);
@@ -512,11 +512,17 @@ function gameLogic(player1choice, player2choice) {
   };
 
   var ARRIVED = function() {
-		$("#result").html("<h4>Congratulations! You met up!</h4>");
-		showButtons();
+    $("#result").html("<h4>Congratulations! You met up!</h4>");
+    
+		// showButtons();
   };
 
   if (player1choice === "I have arrived" && player2choice === "On the Way") {
+    $("#swap-zone").html("<h4>Follow the directions to each other!</h4>");
+    $("#current-turn").empty();
+    $("#player1-chosen").text("<h4>playerOneData.choice</h4>");
+    $("#player2-chosen").text("<h4>playerTwoData.choice</h4>");
+
     ARRIVED();
   }
 																												// else if (player1choice === "Paper" && player2choice === "Paper") {
