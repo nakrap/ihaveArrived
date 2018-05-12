@@ -341,7 +341,7 @@ li {
   /* Box-model */
   width: 6vw;
   background: rgb(17, 187, 17);
-  box-shadow: 5px 5px 30px rgb(0, 0, 0);
+  box-shadow: 3px 3px 30px rgb(53, 53, 53);
   border: 1px solid #000;
 
 }
