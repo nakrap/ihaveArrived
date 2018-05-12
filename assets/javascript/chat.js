@@ -455,10 +455,10 @@ function getInGame() {
     // On disconnect remove this user's player object
     // playerRef.onDisconnect().remove();
 
-    // If a user disconnects, set the current turn to 'null' so the game does not continue
+    // // If a user disconnects, set the current turn to 'null' so the game does not continue
     // currentTurnRef.onDisconnect().remove();
 
-    // Send disconnect message to chat with Firebase server generated timestamp and id of '0' to denote system message
+    // // Send disconnect message to chat with Firebase server generated timestamp and id of '0' to denote system message
     // chatDataDisc.onDisconnect().set({
     //   name: username,
     //   time: firebase.database.ServerValue.TIMESTAMP,
