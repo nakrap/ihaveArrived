@@ -1,55 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+<html lang="en-us">
+
+  <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ihaveArrived</title>
 
-    <title>I have arrived</title>
+    <!-- CSS reset sheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Our Own CSS File -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Corben" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+
+    <!-- Firebase Link -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="jumbotron">
+      <h1 class="text-center">ihaveArrived</h1>
+      <h2 class="text-center">The easiest way to find and connect with your friends!</h2>
+      <button id="arrived">ARRIVED!</button>
+      </div>
+
+    <div id="sizer">
+
+      <div id="swap-zone">
+        <form>
+            <input id="username" name="Username" autofocus required placeholder="Name"/>
+            <input id="email" name="Email" required placeholder="Email"/>
+            <button id="start">Start</button>
+        </form>
+      </div>
+
+      <div id="current-turn"></div>
+
+      <div id="game-div">
+
+        <div id="player1">
+          <h3 id="player1-name">Host</h3>
+          <div id="player1-chosen"></div>
+          <ul class="outcomes">
+            <li class="outcome-trackers" id="player1-buttons"></li>
+          </ul>
+        </div>
+
+        <div id="map"><iframe></iframe></div>
+
+        <div id="player2">
+          <h3 id="player2-name">Guest</h3>
+          <div id="player2-chosen"></div>
+          <ul class="outcomes">
+            <li class="outcome-trackers" id="player2-buttons"></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div id="chat">
+        <div id="chat-messages"></div>
+        <div id="chat-bar">
+          <input id="chat-input" />
+          <button type="button" class="btn btn-success" button id="chat-send">Send</button>
+          <!-- <button id="chat-send">Send</button> -->
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Script -->
+    <script src="assets\javascript\chat.js"></script>
 
-</head>
-<body>
+  </body>
 
-<div class="wrapper">
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <h1 class="text-center">ihaveArrived</h1>
-            <div class="greeting">
-                <form id="name-form">
-                    <input type="text" id="name-input" placeholder="Name">
-                    <input id="addName" type="submit" value="Start">
-                </form>
-            </div>
-        </div>
-    </div>   
-
-    <div id="player-zone"> <!--new users-->
-    </div>
-
-    <!-- field for chat box-->
-    <div class="holder-messages">
-        <div id="messages"></div>
-        <form id="message-form">
-            <input type="text" id="message-input" placeholder="Message">
-            <input id="addMessage" type="submit" value="Send">
-        </form>
-    </div>
-
-    <button type="button" id="reset">Reset</button>
-
-
-</div> <!--end wrapper-->
-
-    <!-- JavaScript -->
-  
-    <script src="assets/javascript/app.js"></script>
-    <script src="assets/javascript/chat.js"></script>
-
-
-</body>
 </html>
+
