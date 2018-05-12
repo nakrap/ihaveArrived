@@ -29,7 +29,7 @@ var playerTwoData = null;
 
 // USERNAME LISTENERS
 // Start button - takes username and tries to get user in game
-$("#start").submit(function() {
+$("#start").click(function() {
   if ($("#username, #email").val() !== "") {
 		username = capitalize($("#username").val());
 		email = $("#email").val();
@@ -453,18 +453,18 @@ function getInGame() {
 		});
 
     // On disconnect remove this user's player object
-    // playerRef.onDisconnect().remove();
+    playerRef.onDisconnect().remove();
 
-    // // If a user disconnects, set the current turn to 'null' so the game does not continue
-    // currentTurnRef.onDisconnect().remove();
+    // If a user disconnects, set the current turn to 'null' so the game does not continue
+    currentTurnRef.onDisconnect().remove();
 
-    // // Send disconnect message to chat with Firebase server generated timestamp and id of '0' to denote system message
-    // chatDataDisc.onDisconnect().set({
-    //   name: username,
-    //   time: firebase.database.ServerValue.TIMESTAMP,
-    //   message: "has left.",
-    //   idNum: 0
-		// });
+    // Send disconnect message to chat with Firebase server generated timestamp and id of '0' to denote system message
+    chatDataDisc.onDisconnect().set({
+      name: username,
+      time: firebase.database.ServerValue.TIMESTAMP,
+      message: "has left.",
+      idNum: 0
+		});
 
     // Remove name input box and show current player number.
 		// $("#swap-zone").html("<h4>Hello " + username + "! You are now User " + playerNum + "</h4>");
