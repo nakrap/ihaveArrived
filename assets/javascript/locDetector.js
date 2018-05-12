@@ -33,8 +33,8 @@
               lng: position.coords.longitude
             };
 
-            console.log("lat is " + pos.lat);
-            console.log("log is " + pos.lng);
+            // console.log("lat is " + pos.lat);
+            // console.log("log is " + pos.lng);
 
             sendDataToFirebase(pos);
             infoWindow.setPosition(pos);
@@ -53,22 +53,20 @@
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
       
       //Sending data to Firebase
       function sendDataToFirebase(pos){
-        console.log('This is fired for player 1')
         var detectedPosLat = pos.lat;
         var detectedPosLang = pos.lng;
         database.ref().update({
-                bdLat: detectedPosLat,
-                bdLang: detectedPosLang,
-                bdLatR: 0,
-                bdLangR: 0,
-                arrStat: "arrived",
-                test:"Im pl"
-              });
+          bdLat: detectedPosLat,
+          bdLang: detectedPosLang,
+          bdLatR: 0,
+          bdLangR: 0,
+          arrStat: "arrived",
+        });
       }

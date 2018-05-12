@@ -21,9 +21,9 @@ database.ref().on("value", function (snapshot) {
     //console.log(lngPos);
 
     var latPosR = snapshot.val().bdLatR;
-    console.log("DB data is " + latPosR);
+    // console.log("DB data is " + latPosR);
     var lngPosR = snapshot.val().bdLangR;
-    console.log("DB data is " + lngPosR);
+    // console.log("DB data is " + lngPosR);
 
     var sysStat = snapshot.val().arrStat;
     initMap(latPos, lngPos, latPosR, lngPosR);
@@ -39,13 +39,13 @@ database.ref().on("value", function (snapshot) {
 
 function initMap(latPos, lngPos, latPosR, lngPosR) {
     var latData = latPos;
-    console.log("Arr data " + latData);
+    // console.log("Arr data " + latData);
     var lngData = lngPos;
-    console.log("Arr data" + lngData);
+    // console.log("Arr data" + lngData);
     var latDataD = latPosR;
-    console.log("Dest data " + latDataD);
+    // console.log("Dest data " + latDataD);
     var lngDataD = lngPosR;
-    console.log("Dest data " + lngDataD);
+    // console.log("Dest data " + lngDataD);
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: latData, lng: lngData },
         zoom: 15
@@ -64,11 +64,11 @@ function initMap(latPos, lngPos, latPosR, lngPosR) {
     //Route calculator
     function calculateAndDisplayRoute(directionsService, directionsDisplay, latData, lngData) {
         var latDataR = latData;
-        console.log("Lat IS " + latData);
+        // console.log("Lat IS " + latData);
         var lngDataR = lngData;
-        console.log("Lng IS " + lngData);
+        // console.log("Lng IS " + lngData);
         var selectedMode = document.getElementById('mode').value;
-        console.log(selectedMode);
+        // console.log(selectedMode);
         directionsService.route({
             origin: {lat: latDataR , lng: lngDataR},
             destination: {lat: latDataD, lng: lngDataD},
@@ -80,7 +80,7 @@ function initMap(latPos, lngPos, latPosR, lngPosR) {
           if (status == 'OK') {
             directionsDisplay.setDirections(response);
           } else {
-            window.alert('Directions request failed due to ' + status);
+            window.alert('Directions request failed due to your locations being too close to eachother.');
           }
         });
       }
@@ -92,7 +92,7 @@ function initMap(latPos, lngPos, latPosR, lngPosR) {
         position: map.center,
         map: map,
         zoom: 15,
-        title: 'Nick is arrived'
+        title: 'User 1 has arrived'
     });
 
     var infowindow = new google.maps.InfoWindow();
@@ -125,8 +125,8 @@ function initMap(latPos, lngPos, latPosR, lngPosR) {
                 lng: position.coords.longitude
               };
   
-              console.log("lat is " + pos.lat);
-              console.log("log is " + pos.lng);
+            //   console.log("lat is " + pos.lat);
+            //   console.log("log is " + pos.lng);
   
               infoWindow.setPosition(pos);
               sendDataToFirebase(pos);
@@ -152,13 +152,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 //Sending data to Firebase
 function sendDataToFirebase(pos) {
-    console.log('THis is fired for player 2')
     var detectedPosLatR = pos.lat;
     var detectedPosLangR = pos.lng;
     database.ref().update({
         bdLatR: detectedPosLatR,
         bdLangR: detectedPosLangR,
-        arrStat: "arrived"
+        arrStat: "on the way"
     });
 }
 

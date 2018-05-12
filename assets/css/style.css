@@ -1,6 +1,6 @@
 body {
   /* Visual */
-  background-color: #42a5f5;
+	background-image: url("../images/background.jpg");
 }
 
 header {
@@ -17,11 +17,6 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  /* Typography */
-  font-size: 24px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Merriweather', Georgia, Times, serif;
 }
@@ -30,7 +25,7 @@ p, div {
 }
 
 .jumbotron {
-  background-color: black; 
+	background-image: url("../images/header2.png");
   color: white;
   text-align: center;
   height: 20vw;
@@ -47,6 +42,37 @@ input {
 
   /* Positioning */
   margin: 0 auto;
+}
+
+#username, #email {
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  vertical-align: middle;
+  border-radius: 6px;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  border: 1px solid #000;
+}
+
+#start, #arrived {
+  margin-top: 10px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  border: 1px solid #000;
+}
+
+#arrived {
+  font-size: 10px;
+}
+
+#start {
+  background: rgb(17, 187, 17);
+  vertical-align: center;
+  padding-top: 5px;
+}
+
+form {
+  vertical-align: center;
 }
 
 /***********************************
@@ -75,16 +101,18 @@ input {
   font-size: 30px;
 }
 
-#swap-zone button {
+#swap-zone button, #start {
   /* Box-model */
   width: 100px;
-  height: 36px;
+  height: 38px;
+  margin-left: 10px;
+  /* margin-top: 5px; */
 
   /* Typography */
   font-size: 22px;
 
   /* Positioning */
-  vertical-align: top;
+  vertical-align: center;
 }
 
 /***********************************
@@ -134,17 +162,18 @@ input {
   /* Visual */
   background: white;
   border: 3px solid #000;
-  border-radius: 15px;
-  box-shadow: 10px 10px 50px grey,
+  border-radius: 6px;
+  box-shadow: 5px 5px 30px rgb(0, 0, 0);
+  
 }
 
-#map {
+#map #Map {
   position: relative;
   display: inline-block;
 
   /* Box-model */
   width: 35%;
-  height: 300px;
+  height: 369px;
   box-sizing: border-box;
   padding: 10px;
 
@@ -158,12 +187,21 @@ input {
   /* Visual */
   border: 3px solid #000;
   border-radius: 15px;
-  box-shadow: 10px 10px 50px grey,
+  box-shadow: 10px 10px 50px rgb(0, 0, 0),
 }
 
+iframe {
+  width: 100%;
+  height: 330px;
+  margin: 50px;
+}
 
-#player1-name,
-#player2-name {
+#messageArea {
+  text-align: center;
+  display: none;
+}
+
+#player1-name, #player2-name {
   /* Positioning */
   margin-bottom: 15px;
 
@@ -171,13 +209,12 @@ input {
   font-size: 28px;
 }
 
-#player1-chosen,
-#player2-chosen {
+#player1-chosen, #player2-chosen {
   /* Positioning */
   margin-top: 25px;
 
   /* Typography */
-  font-size: 60px;
+  font-size: 30px;
 }
 
 li {
@@ -234,28 +271,28 @@ li {
   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
   box-shadow: rgba(0,0,0,1) 0 1px 0;
   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-  color: green;
+  color: rgb(255, 255, 255);
   font-size: 18px;
   font-family: Georgia, serif;
   text-decoration: none;
   vertical-align: middle;
   text-align: center;
   margin-bottom: 30px;
-  }
+}
 .arrivedButton:hover, .onTheWay:hover {
   border-top-color: #a61515;
   background: #a61515;
-  color: #000000;
+  color: #ffffff;
   cursor:pointer;
-  }
+}
 .arrivedButton:active, .onTheWay:active {
   border-top-color: #002c4a;
   background: #002c4a;
-  }
+}
 
 #arrived {
   display: none;
-  }
+}
 
 /***********************************
 
@@ -275,8 +312,9 @@ li {
   padding: 1vw;
   margin: 2vw auto;
 	background: white;
-	border: 2px solid black;
-  border-radius: 2vw;
+	border-radius: 6px;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  border: 2px solid #000;
 }
 
 #chat-messages {
@@ -302,17 +340,20 @@ li {
 #chat-send {
   /* Box-model */
   width: 6vw;
-  background: lightgreen;
+  background: rgb(17, 187, 17);
+  box-shadow: 5px 5px 30px rgb(0, 0, 0);
+  border: 1px solid #000;
+
 }
 
 .player1 {
   /* Visual */
-  color: #631313;
+  color: #cc1010;
 }
 
 .player2 {
   /* Visual */
-  color: #2d3047;
+  color: #2d3ec2;
   text-align: right;
 }
 
@@ -333,7 +374,7 @@ li {
 input:required:invalid, input:focus:invalid {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeVJREFUeNqkU01oE1EQ/mazSTdRmqSxLVSJVKU9RYoHD8WfHr16kh5EFA8eSy6hXrwUPBSKZ6E9V1CU4tGf0DZWDEQrGkhprRDbCvlpavan3ezu+LLSUnADLZnHwHvzmJlvvpkhZkY7IqFNaTuAfPhhP/8Uo87SGSaDsP27hgYM/lUpy6lHdqsAtM+BPfvqKp3ufYKwcgmWCug6oKmrrG3PoaqngWjdd/922hOBs5C/jJA6x7AiUt8VYVUAVQXXShfIqCYRMZO8/N1N+B8H1sOUwivpSUSVCJ2MAjtVwBAIdv+AQkHQqbOgc+fBvorjyQENDcch16/BtkQdAlC4E6jrYHGgGU18Io3gmhzJuwub6/fQJYNi/YBpCifhbDaAPXFvCBVxXbvfbNGFeN8DkjogWAd8DljV3KRutcEAeHMN/HXZ4p9bhncJHCyhNx52R0Kv/XNuQvYBnM+CP7xddXL5KaJw0TMAF8qjnMvegeK/SLHubhpKDKIrJDlvXoMX3y9xcSMZyBQ+tpyk5hzsa2Ns7LGdfWdbL6fZvHn92d7dgROH/730YBLtiZmEdGPkFnhX4kxmjVe2xgPfCtrRd6GHRtEh9zsL8xVe+pwSzj+OtwvletZZ/wLeKD71L+ZeHHWZ/gowABkp7AwwnEjFAAAAAElFTkSuQmCC);
   background-position: right top;
-background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 input:required:valid {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrEk79PFEEUx9/uDDd7v/AAQQnEQokmJCRGwc7/QeM/YGVxsZJQYI/EhCChICYmUJigNBSGzobQaI5SaYRw6imne0d2D/bYmZ3dGd+YQKEHYiyc5GUyb3Y+77vfeWNpreFfhvXfAWAAJtbKi7dff1rWK9vPHx3mThP2Iaipk5EzTg8Qmru38H7izmkFHAF4WH1R52654PR0Oamzj2dKxYt/Bbg1OPZuY3d9aU82VGem/5LtnJscLxWzfzRxaWNqWJP0XUadIbSzu5DuvUJpzq7sfYBKsP1GJeLB+PWpt8cCXm4+2+zLXx4guKiLXWA2Nc5ChOuacMEPv20FkT+dIawyenVi5VcAbcigWzXLeNiDRCdwId0LFm5IUMBIBgrp8wOEsFlfeCGm23/zoBZWn9a4C314A1nCoM1OAVccuGyCkPs/P+pIdVIOkG9pIh6YlyqCrwhRKD3GygK9PUBImIQQxRi4b2O+JcCLg8+e8NZiLVEygwCrWpYF0jQJziYU/ho2TUuCPTn8hHcQNuZy1/94sAMOzQHDeqaij7Cd8Dt8CatGhX3iWxgtFW/m29pnUjR7TSQcRCIAVW1FSr6KAVYdi+5Pj8yunviYHq7f72po3Y9dbi7CxzDO1+duzCXH9cEPAQYAhJELY/AqBtwAAAAASUVORK5CYII=);

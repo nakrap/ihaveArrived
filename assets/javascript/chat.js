@@ -29,12 +29,12 @@ var playerTwoData = null;
 
 // USERNAME LISTENERS
 // Start button - takes username and tries to get user in game
-$("#start").submit(function() {
+$("#start").click(function() {
   if ($("#username, #email").val() !== "") {
 		username = capitalize($("#username").val());
 		email = $("#email").val();
     getInGame();
-  }
+  } 
 });
 
 // listener for 'enter' in username input
@@ -140,7 +140,7 @@ $("#chat-input").keypress(function(e) {
 																														// Click event for dynamically added <li> elements
 																														$(document).on("click", "li", function() {
                                                 
-                                                              console.log(currentTurn);
+                                                              // console.log(currentTurn);
                                                               if(currentTurn==1){
                                                               window.frames[0].location = "location.html";
                                                               }
@@ -276,7 +276,7 @@ currentTurnRef.on("value", function(snapshot) {
 
       // If its the current player's turn, tell them and show choices
       if (currentTurn === playerNum) {
-				$("#current-turn").html("<h2>Click the button below to let your friends know where you are!</h2>");
+				$("#current-turn").html("<h4>Click the button below to let your friends know where you are!</h4>");
 				// Host button
 					var a = $("<button>");
 					// Adding a class to our button
@@ -292,7 +292,7 @@ currentTurnRef.on("value", function(snapshot) {
       else {
 
         // If it isn't the current players turn, tells them they're waiting for player one
-        $("#current-turn").html("<h2>Waiting for " + playerOneData.name + " to arrive.</h2>");
+        $("#current-turn").html("<h4>Waiting for " + playerOneData.name + " to arrive.</h4>");
       }
 
       // Shows red border around active player
@@ -312,7 +312,7 @@ currentTurnRef.on("value", function(snapshot) {
 
       // If its the current player's turn, tell them and show choices
       if (currentTurn === playerNum) {
-				$("#current-turn").html("<h2>It's Your Turn! Click the button below to let you friends know you're on your way.</h2>");
+				$("#current-turn").html("<h4>It's Your Turn! Click the button below to let you friends know you're on your way.</h4>");
 				//Guest Button
 					var b = $("<button>");
 					b.addClass("onTheWay");
@@ -324,7 +324,7 @@ currentTurnRef.on("value", function(snapshot) {
       else {
 
         // If it isn't the current players turn, tells them they're waiting for player two
-        $("#current-turn").html("<h2>Waiting for " + playerTwoData.name + " to be on the way.</h2>");
+        $("#current-turn").html("<h4>Waiting for " + playerTwoData.name + " to be on the way.</h4>");
 
       }
 
@@ -346,8 +346,8 @@ currentTurnRef.on("value", function(snapshot) {
 															//This is where the DIRECTIONS would disply in the middle!!!!!! After each user clicks their buttons.
 
 
-																																	// // Where the game win logic takes place then resets to turn 1
-																																	// gameLogic(playerOneData.choice, playerTwoData.choice);
+    // Where the game win logic takes place then resets to turn 1
+    gameLogic(playerOneData.choice, playerTwoData.choice);
 
       // reveal both player statuses
       $("#player1-chosen").text(playerOneData.choice);
@@ -378,7 +378,7 @@ currentTurnRef.on("value", function(snapshot) {
       //  }
       $("#player1 ul").empty();
       $("#player2 ul").empty();
-      $("#current-turn").html("<h2>Waiting for another user to join.</h2>");
+      $("#current-turn").html("<h4>Waiting for another user to join.</h4>");
       $("#player2").css("border", "2px solid black");
       $("#player1").css("border", "2px solid black");
     }
@@ -453,22 +453,22 @@ function getInGame() {
 		});
 
     // On disconnect remove this user's player object
-    // playerRef.onDisconnect().remove();
+    playerRef.onDisconnect().remove();
 
     // If a user disconnects, set the current turn to 'null' so the game does not continue
-    // currentTurnRef.onDisconnect().remove();
+    currentTurnRef.onDisconnect().remove();
 
     // Send disconnect message to chat with Firebase server generated timestamp and id of '0' to denote system message
-    // chatDataDisc.onDisconnect().set({
-    //   name: username,
-    //   time: firebase.database.ServerValue.TIMESTAMP,
-    //   message: "has left.",
-    //   idNum: 0
-		// });
+    chatDataDisc.onDisconnect().set({
+      name: username,
+      time: firebase.database.ServerValue.TIMESTAMP,
+      message: "has left.",
+      idNum: 0
+		});
 
     // Remove name input box and show current player number.
-		// $("#swap-zone").html("<h2>Hello " + username + "! You are now User " + playerNum + "</h2>");
-		$("#swap-zone").html("<h2>Hello " + username + "! Welcome to the <strong>ihaveArrived</strong> Dashboard.</h2>");
+		// $("#swap-zone").html("<h4>Hello " + username + "! You are now User " + playerNum + "</h4>");
+		$("#swap-zone").html("<h4>Hello " + username + "! Welcome to the <strong>ihaveArrived</strong> Dashboard.</h4>");
   }
 																															// else {
 
@@ -496,7 +496,7 @@ function getInGame() {
 function gameLogic(player1choice, player2choice) {
 
   var playerOneWon = function() {
-    $("#result").html("<h2>" + playerOneData.name + "</h2><h2> has arrived!</h2>");
+    $("#result").html("<h4>" + playerOneData.name + "</h4><h4> has arrived!</h4>");
 																													// if (playerNum === 1) {
 																													//   playersRef.child("1").child("wins").set(playerOneData.wins + 1);
 																													//   playersRef.child("2").child("losses").set(playerTwoData.losses + 1);
@@ -504,7 +504,7 @@ function gameLogic(player1choice, player2choice) {
   };
 
   var playerTwoWon = function() {
-    $("#result").html("<h2>" + playerTwoData.name + "</h2><h2> is on the way!</h2>");
+    $("#result").html("<h4>" + playerTwoData.name + "</h4><h4> is on the way!</h4>");
 																													// if (playerNum === 2) {
 																													//   playersRef.child("2").child("wins").set(playerTwoData.wins + 1);
 																													//   playersRef.child("1").child("losses").set(playerOneData.losses + 1);
@@ -512,11 +512,17 @@ function gameLogic(player1choice, player2choice) {
   };
 
   var ARRIVED = function() {
-		$("#result").html("<h2>Congratulations! You met up!</h2>");
-		showButtons();
+    $("#result").html("<h4>Congratulations! You met up!</h4>");
+    
+		// showButtons();
   };
 
   if (player1choice === "I have arrived" && player2choice === "On the Way") {
+    $("#swap-zone").html("<h4>Follow the directions to each other!</h4>");
+    $("#current-turn").empty();
+    $("#player1-chosen").text("<h4>playerOneData.choice</h4>");
+    $("#player2-chosen").text("<h4>playerTwoData.choice</h4>");
+
     ARRIVED();
   }
 																												// else if (player1choice === "Paper" && player2choice === "Paper") {
