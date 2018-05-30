@@ -20,34 +20,12 @@ The app requires a sequential order.
 - Once User 1 has clicked the 'ihaveArrived' button, User 2 is given the option to click the 'onTheWay' button. 
 - Once User 2 has clicked the 'onTheWay' button, all parties are notified of their current status. 
 
+Deployment:
+https://nakrap.github.io/ihaveArrived/
 
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
-
-Deployment
-In order to deploy the first tab, click 
-
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
-
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-Acknowledgments
-Hat tip to anyone who's code was used
-Inspiration
-etc
+Built With:
+HTML
+CSS
+Bootstrap
+AJAX
+APIs
