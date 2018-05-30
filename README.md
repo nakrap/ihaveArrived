@@ -1,4 +1,5 @@
-#ihaveArrived
+#ihaveArrived:
+
 Easy way to find and connect with your friends no matter where you are! 
 The app allows users to use precise latitude and longitude locations, as well as directions, to be able to find each other in large crowded places. 
 Examples include finding a host at a tailgate event, meeting up with friends at a concert or festival, or even making contact with a delivery person. 
